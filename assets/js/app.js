@@ -1,7 +1,7 @@
 /* === FORM BUILDER — ADMIN APP JS === */
 'use strict';
 
-// ── API Client ──────────────────────────────────────────────
+// ── API Client 
 const API = {
   base: window.APP_BASE + '/api',
 
@@ -46,17 +46,17 @@ const API = {
   }
 };
 
-// ── State ────────────────────────────────────────────────────
+
 const State = {
   admin: null,
   forms: [],
   currentForm: null,
   currentFields: [],
   submissions: [],
-  view: 'forms', // forms | builder | submissions | settings
+  view: 'forms', 
 };
 
-// ── Toast ────────────────────────────────────────────────────
+
 function showToast(msg, type = 'info', duration = 3500) {
   let container = document.getElementById('toast-container');
   if (!container) {
@@ -82,7 +82,7 @@ function showToast(msg, type = 'info', duration = 3500) {
   }, duration);
 }
 
-// ── Modal helpers ────────────────────────────────────────────
+// ── Modal helpers
 function openModal(id) { document.getElementById(id)?.classList.add('open'); }
 function closeModal(id) { document.getElementById(id)?.classList.remove('open'); }
 document.addEventListener('click', e => {
@@ -90,7 +90,7 @@ document.addEventListener('click', e => {
   if (e.target.dataset.closeModal) closeModal(e.target.dataset.closeModal);
 });
 
-// ── Auth ─────────────────────────────────────────────────────
+// ── Auth 
 function showLogin() {
   document.getElementById('app-root').innerHTML = '';
   document.getElementById('login-page').classList.remove('hidden');
@@ -120,7 +120,7 @@ async function doLogin() {
   }
 }
 
-// ── App Shell ────────────────────────────────────────────────
+// ── App Shell 
 function renderApp() {
   const root = document.getElementById('app-root');
   const a = State.admin;
@@ -286,7 +286,7 @@ function modalsHTML() {
   </div>`;
 }
 
-// ── Navigation ───────────────────────────────────────────────
+// ── Navigation
 function navigateTo(view) {
   State.view = view;
   ['sb-forms','sb-builder','sb-submissions'].forEach(id => {
@@ -309,7 +309,7 @@ function logout() {
   showLogin();
 }
 
-// ── Forms List View ───────────────────────────────────────────
+// ── Forms List View 
 async function loadForms() {
   const res = await API.get('/forms');
   if (res?.ok) {
@@ -442,7 +442,7 @@ function confirmDeleteForm(id, uuid) {
   openModal('modal-delete');
 }
 
-// ── Builder View ──────────────────────────────────────────────
+// ── Builder View 
 function renderBuilderView() {
   if (!State.currentForm) { navigateTo('forms'); return; }
   const f = State.currentForm;
@@ -546,7 +546,7 @@ function copyPublicUrl() {
   navigator.clipboard.writeText(url).then(() => showToast('URL copied!', 'success')).catch(() => showToast('Failed to copy URL', 'error'));
 }
 
-// ── Field Modal ───────────────────────────────────────────────
+// ── Field Modal
 function onFieldTypeChange() {
   const type = document.getElementById('field-type').value;
   const hasOpts = ['dropdown','radio','checkbox'].includes(type);
@@ -658,7 +658,7 @@ function confirmDeleteField(fieldId) {
   openModal('modal-delete');
 }
 
-// ── Drag & Drop Reorder ───────────────────────────────────────
+// ── Drag & Drop Reorder 
 function initDragSort() {
   const list = document.getElementById('fields-list');
   if (!list) return;
@@ -702,7 +702,7 @@ async function saveFieldOrder() {
   State.currentFields = order.map(id => fieldMap[id]).filter(Boolean);
 }
 
-// ── Submissions View ──────────────────────────────────────────
+// ── Submissions View 
 async function renderSubmissionsView() {
   if (!State.currentForm) { navigateTo('forms'); return; }
   const view = document.getElementById('main-view');
@@ -770,13 +770,13 @@ function exportCSV() {
   API.download(`/forms/${State.currentForm.uuid}/export`, `submissions_${State.currentForm.uuid}.csv`);
 }
 
-// ── Escape HTML ───────────────────────────────────────────────
+// ── Escape HTML
 function esc(str) {
   if (!str) return '';
   return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-// ── Keyboard shortcuts ────────────────────────────────────────
+// ── Keyboard shortcuts 
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     document.querySelectorAll('.modal-overlay.open').forEach(m => m.classList.remove('open'));
@@ -791,7 +791,7 @@ const style = document.createElement('style');
 style.textContent = `@keyframes slideInRight{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}`;
 document.head.appendChild(style);
 
-// ── Bootstrap ─────────────────────────────────────────────────
+// ── Bootstrap 
 window.addEventListener('DOMContentLoaded', async () => {
   const token = API.getToken();
   if (!token) { showLogin(); return; }

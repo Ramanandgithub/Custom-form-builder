@@ -1,8 +1,5 @@
 <?php
-/**
- * Migration Runner
- * Run this once: php migrations/migrate.php
- */
+
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../includes/Security.php';
 
@@ -45,6 +42,6 @@ if ($stmt->rowCount()) {
     echo "ℹ Admin already exists\n";
 }
 
-echo "\n✅ Migration complete!\n";
+echo "\n Migration complete!\n";
 echo "Default credentials: $username / $password\n";
 echo "⚠  Change the password after first login!\n";
