@@ -8,14 +8,14 @@
   <link rel="stylesheet" href="assets/css/app.css">
   <style>
     /* Login page specific */
-    #login-page { display: block; }
+    #login-page { display: flex; }
     #app-root { display: block; }
   </style>
 </head>
-<body style="background:#f0f2f5;">
+<body style="justify-content:center;align-items:center;height:100vh">
 
 <!-- Login Page -->
-<div id="login-page" class="login-page">
+<div id="login-page" class="login-page" >
   <div class="login-card">
     <div class="login-logo">Form<span>Builder</span></div>
     <div class="login-tagline">Admin Dashboard — Sign in to continue</div>

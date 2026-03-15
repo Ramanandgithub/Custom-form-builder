@@ -1,8 +1,5 @@
 <?php
-/**
- * REST API Router
- * All API requests go through /api/index.php
- */
+
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../includes/JWT.php';
 require_once __DIR__ . '/../includes/Security.php';

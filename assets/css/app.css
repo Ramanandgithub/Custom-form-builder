@@ -490,8 +490,8 @@ tbody tr:hover { background: var(--paper); }
 .login-card {
   background: #fff;
   border-radius: var(--radius-lg);
-  padding: 44px 40px;
-  width: 100%; max-width: 420px;
+  padding: 60px 40px;
+  width: 100%; max-width: 500px;
   box-shadow: var(--shadow-lg);
   position: relative; z-index: 1;
 }
