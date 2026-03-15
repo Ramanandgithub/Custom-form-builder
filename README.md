@@ -9,17 +9,17 @@ A dynamic PHP Form Builder that allows users to create, manage, and submit forms
 - **Auth**: JWT (HS256)
 
 ## Features
-- ✅ Admin panel with JWT authentication
-- ✅ Create/edit/delete forms
-- ✅ 8 field types: Text, Email, Number, Textarea, Dropdown, Radio, Checkbox, File Upload
-- ✅ Drag & drop field reordering
-- ✅ Public form URLs
-- ✅ Client & server-side validation
-- ✅ Submission management with date/time
-- ✅ CSV export
-- ✅ REST API (CRUD)
-- ✅ Prepared statements & XSS protection
-- ✅ Database migrations
+- Admin panel with JWT authentication
+- Create/edit/delete forms
+- 8 field types: Text, Email, Number, Textarea, Dropdown, Radio, Checkbox, File Upload
+- Drag & drop field reordering
+- Public form URLs
+- Client & server-side validation
+- Submission management with date/time
+- CSV export
+- REST API (CRUD)
+- Prepared statements & XSS protection
+- Database migrations
 
 ## Requirements
 - PHP 8.1+
@@ -30,17 +30,16 @@ A dynamic PHP Form Builder that allows users to create, manage, and submit forms
 
 ### 1. Clone / Extract
 ```bash
-# Place the form-builder/ folder in your web root
-# e.g. /var/www/html/form-builder/  or  htdocs/form-builder/
+
 ```
 
 ### 2. Configure Database
 Edit `config/database.php`:
 ```php
-define('DB_HOST', 'localhost');     // your DB host
-define('DB_USER', 'root');          // your DB username
-define('DB_PASS', '');              // your DB password
-define('DB_NAME', 'form_builder');  // database name (auto-created)
+define('DB_HOST', 'localhost');     
+define('DB_USER', 'root');          
+define('DB_PASS', '');              
+define('DB_NAME', 'form_builder');  
 ```
 
 Also update `JWT_SECRET` with a strong random string:
@@ -64,7 +63,7 @@ This creates all tables and seeds a default admin user.
 - Username: `admin`
 - Password: `Admin@123`
 
-> ⚠️ Change the password after first login!
+>  Change the password after first login!
 
 ### 4. Apache Configuration
 Ensure `mod_rewrite` is enabled and `AllowOverride All` is set in your Apache config:
